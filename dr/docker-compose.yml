@@ -1,0 +1,40 @@
+version: '3'
+services:
+  appclient:
+    image: maven:3.3.9-jdk-8-alpine
+    command: ["/bin/bash"]
+    stdin_open: true
+    tty: true
+    volumes:
+      - {$IDEA_WORKSPACE}/simple-cab:/simple-cab
+  appserver:
+    image: maven:3.3.9-jdk-8-alpine
+    command: ["java", "-jar", "/simple-cab/out/artifacts/server_jar/server.jar"]
+    volumes:
+      - {$IDEA_WORKSPACE}/simple-cab:/simple-cab
+  db:
+    image: postgres # image auto exposes port 5432 in container
+    environment:
+      POSTGRES_PASSWORD: dev
+    restart: always
+    volumes:
+      - {$IDEA_WORKSPACE}/db:/db
+# #
+# docker run \
+#   -e DISPLAY=${DISPLAY} -ti \
+#   -v /tmp/.X11-unix:/tmp/.X11-unix \
+#   -v ~/.Idea:/home/developer/.Idea \
+#   -v ~/.Idea.java:/home/developer/.java \
+#   -v ~/.Idea.maven:/home/developer/.m2 \
+#   -v ~/.Idea.gradle:/home/developer/.gradle \
+#   -v ~/workspace:/home/developer/workspace \
+#   --name idea \
+# alexn34/intellij-idea /bin/bash
+
+#     A network called java_default is created.
+#     A container is created using intellij’s configuration. It joins the network java_default under the name web.
+#     A container is created using db’s configuration. It joins the network java_default under the name db.
+# cd ./simple-cab/Server/target/classes
+# java com.datarepublic.simplecab.Server
+# cd ./simple-cab/client/target/classes
+# java com.datarepublic.simplecab.Client

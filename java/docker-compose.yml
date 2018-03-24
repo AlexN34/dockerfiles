@@ -1,0 +1,31 @@
+version: '3'
+services:
+  intellij-alex:
+    image: alexn34/intellij-idea
+    environment:
+      DISPLAY: "${DISPLAY}"
+    command: ["/opt/idea/bin/idea.sh"]
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - {$HOME}/.Idea:/home/developer/.Idea
+      - {$HOME}/.Idea.java:/home/developer/.java
+      - {$HOME}/.Idea.maven:/home/developer/.m2
+      - {$HOME}/.Idea.gradle:/home/developer/.gradle
+      - {$WORKSPACE}/home/developer/workspace
+
+# #
+# docker run \
+#   -e DISPLAY=${DISPLAY} -ti \
+#   -v /tmp/.X11-unix:/tmp/.X11-unix \
+#   -v ~/.Idea:/home/developer/.Idea \
+#   -v ~/.Idea.java:/home/developer/.java \
+#   -v ~/.Idea.maven:/home/developer/.m2 \
+#   -v ~/.Idea.gradle:/home/developer/.gradle \
+#   -v ~/workspace:/home/developer/workspace \
+#   --name idea \
+# alexn34/intellij-idea /bin/bash
+
+#     A network called java_default is created.
+#     A container is created using intellij’s configuration. It joins the network java_default under the name web.
+#     A container is created using db’s configuration. It joins the network java_default under the name db.
+# TODO dockerfile that pulls in config repo
