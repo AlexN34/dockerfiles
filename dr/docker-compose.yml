@@ -6,19 +6,19 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - {$IDEA_WORKSPACE}/simple-cab:/simple-cab
+      - "$IDEA_WORKSPACE/simple-cab:/simple-cab"
   appserver:
     image: maven:3.3.9-jdk-8-alpine
     command: ["java", "-jar", "/simple-cab/out/artifacts/server_jar/server.jar"]
     volumes:
-      - {$IDEA_WORKSPACE}/simple-cab:/simple-cab
+      - "$IDEA_WORKSPACE/simple-cab:/simple-cab"
   db:
     image: postgres # image auto exposes port 5432 in container
     environment:
       POSTGRES_PASSWORD: dev
     restart: always
     volumes:
-      - {$IDEA_WORKSPACE}/db:/db
+      - "$IDEA_WORKSPACE/db:/db"
 # #
 # docker run \
 #   -e DISPLAY=${DISPLAY} -ti \
