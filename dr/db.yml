@@ -1,0 +1,9 @@
+version: '3'
+services:
+  db:
+    image: postgres # image auto exposes port 5432 in container
+    environment:
+      POSTGRES_PASSWORD: dev
+    restart: always
+    volumes:
+      - "$IDEA_WORKSPACE/simple-cab/db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/"
