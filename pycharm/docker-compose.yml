@@ -1,17 +1,15 @@
 version: '3'
 services:
-  intellij-alex:
-    image: alexn34/intellij-idea
+  ide:
+    image: binhex/arch-pycharm
     environment:
       DISPLAY: "${DISPLAY}"
-    command: ["/opt/idea/bin/idea.sh"]
+    command: ["/opt/idea/bin/pycharm.sh"]
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix"
-      - "$HOME/.Idea:/home/developer/.Idea"
-      - "$HOME/.Idea.java:/home/developer/.java"
-      - "$HOME/.Idea.maven:/home/developer/.m2"
-      - "$HOME/.Idea.gradle:/home/developer/.gradle"
-      - "$IDEA_WORKSPACE:/home/developer/IdeaProjects"
+      - "$HOME/.Pycharm:/home/developer/.Pycharm"
+      - "$HOME/.Pycharm.java:/home/developer/.Pycharm.java"
+      - "$WORKSPACE:/home/developer/workspace"
 
 # #
 # docker run \
@@ -29,3 +27,4 @@ services:
 #     A container is created using intellij’s configuration. It joins the network java_default under the name web.
 #     A container is created using db’s configuration. It joins the network java_default under the name db.
 # TODO dockerfile that pulls in config repo
+# TODO mount bin directory for browser? (config?)
