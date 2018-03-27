@@ -13,7 +13,7 @@ services:
       - "$HOME/.Idea.gradle:/home/developer/.gradle"
       - "$WORKSPACE:/home/developer/workspace"
     ports:
-      - "8080:8080"
+      - "8080:8080" # host/ prototype springboot servers
 
 # #
 # docker run \
