@@ -12,8 +12,8 @@ services:
       - "$HOME/.Idea.maven:/home/developer/.m2"
       - "$HOME/.Idea.gradle:/home/developer/.gradle"
       - "$WORKSPACE:/home/developer/workspace"
-    ports:
-      - "8080:8080" # host/ prototype springboot servers
+    # ports:
+      # - "8080:8080" # host/ prototype springboot servers
 
 # #
 # docker run \

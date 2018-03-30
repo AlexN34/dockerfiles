@@ -12,6 +12,7 @@ services:
       - "$HOME/.Idea.maven:/home/developer/.m2"
       - "$HOME/.Idea.gradle:/home/developer/.gradle"
       - "$IDEA_WORKSPACE:/home/developer/IdeaProjects"
+      - "$WORKSPACE:/home/developer/workspace"
 
 # #
 # docker run \

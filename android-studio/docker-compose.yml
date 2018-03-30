@@ -1,0 +1,21 @@
+version: '3'
+services:
+  local:
+    image: alexn34/android-studio
+    environment:
+      DISPLAY: "${DISPLAY}"
+    user: "developer"
+    command: ["/opt/android-studio/bin/studio.sh"]
+    volumes:
+      # Android studio uses IDEA style config - symlink config folder in
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$HOME/.AndroidStudio/:/home/developer/.AndroidStudio3.1/"
+      - "$HOME/.android:/home/developer/.android"
+      - "$HOME/.java:/home/developer/.java"
+      - "$HOME/.gradle:/home/developer/.gradle"
+      - "$ANDROID_WORKSPACE:/home/developer/AndroidStudioProjects"
+      - "$WORKSPACE:/home/developer/workspace"
+      - "/dev/bus/usb:/dev/bus/usb"
+      - "/data:/data"
+      - "$DOCKERMOUNTS/android-sdk:/home/developer/Android/SDK"
+    privileged: true

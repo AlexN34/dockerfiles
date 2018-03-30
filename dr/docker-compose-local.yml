@@ -7,12 +7,12 @@ services:
       MYSQL_DATABASE: mysql
     restart: always
     volumes:
-      - "$IDEA_WORKSPACE/simple-cab/db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/"
+      - "./db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/"
   server:
     image: maven:3.3.9-jdk-8-alpine
     command: ["mvn", "spring-boot:run"]
     volumes:
-      - "$IDEA_WORKSPACE/simple-cab:/simple-cab"
+      - "./simple-cab:/simple-cab"
     ports:
       - "8080:8080"
     working_dir: /simple-cab/server
@@ -23,7 +23,7 @@ services:
     tty: true
     working_dir: /simple-cab/client/target
     volumes:
-      - "$IDEA_WORKSPACE/simple-cab:/simple-cab"
+      - "./simple-cab:/simple-cab"
 # #
 # docker run \
 #   -e DISPLAY=${DISPLAY} -ti \
