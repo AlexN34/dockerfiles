@@ -25,3 +25,4 @@ Files in this folder will assume the following environment variables:
 - Android Studio uses same set up as IDEA but doesn't have a .maven folder
 - Android SDK specific files installed at `~/.android` 
 - For device debugging, mount local `/dev/bus/usb` to give container access to usb devices 
+- Docker for Windows runs on Hyper-V which doesn't support USB passthrough right now - won't be able to usb debug there
