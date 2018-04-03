@@ -1,4 +1,4 @@
-# Docker files and Docker compose explorations
+# Docker files and Docker compose explorationss
 
 Learning to containerise stuff as I move machines & operating system often between work/home.
 
