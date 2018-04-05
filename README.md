@@ -17,6 +17,7 @@ Files in this folder will assume the following environment variables:
 - `WORKSPACE`: path to general development workspace 
 - `IDEA_WORKSPACE`: path to workspace for Intellij IDEA (Community)
 - `ANDROID_WORKSPACE`: path to workspace for Android Studio
+- `EMACS_CONFIG`: path to config for Emacs (Spacemacs)
 # Program Specific details
 ## Jetbrains IDEs
 ### IDEA
