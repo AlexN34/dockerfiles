@@ -1,0 +1,6 @@
+version: '3'
+services:
+  os:
+    image: centos # image auto exposes port 5432 in container
+    volumes:
+      - "~/workspace/devops/centos-install-docker:/root/centos-install-docker"
