@@ -1,0 +1,1 @@
+{"virtualbox":{"/devops":{"guestpath":"/devops","hostpath":"/home/alex/Sync/workspace/devops","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/alex/Sync/workspace/dockerfiles/centos","disabled":false,"__vagrantfile":true}}}
